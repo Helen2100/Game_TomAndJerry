@@ -12,12 +12,13 @@
 Описание: Продукт являет игрой, в которой Джерри пытается украсть как можно больше сыра, не попав в ловушки Тома (мышеловки и динамиты)
 
 Целевая аудитория: Русскоязычная аудитория старше 5 лет
+
 Стек технологий:  С#, Visual Studio;
 
 Сценарий использования:
   1.	Пользователь скачивает проект
-  2.	Нажимает на Tom and Jerry.sln
-  3.	Там нажимает на кнопку Пуск, которая находить в меню экрана
+  2.	Выбирает файл Game_TomAndJerry.sln
+  3.	В меню пиктограмм Visial studio нажимает на кнопку Пуск
 1) Для просмотра основного кода программы пользователь должен зайти в файл Form1.cs
 2) Для просмотра тестов для основной программы пользователь должен зайти в папку Test
 
@@ -41,8 +42,8 @@ Technology Stack: C#, Visual Studio;
 
 Use case:
 	1. The user downloads the project
-	2. Clicks on Tom and Jerry. sln
-	3. There, click on the Start button, which is located in the screen menu
+	2. Clicks on Game_TomAndJerry.sln
+	3. Click on the Start button, which is located in the menu icon
  1) To view the main program code, the user must go to the Form1.cs file
  2) To view the tests for the main program, the user must go to the Test folder
 
