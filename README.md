@@ -1,5 +1,5 @@
-# Game_TomAndJerry_version1
-"Jerry and Tom" Endless Runner Gamer (version 1)
+# Game_TomAndJerry
+"Jerry and Tom" Endless Runner Gamer
 
 Название проекта: Том и Джерри
 
