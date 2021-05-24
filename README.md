@@ -1,5 +1,5 @@
 # Game_TomAndJerry
-"Jerry and Tom" Endless Runner Gamer
+"Jerry and Tom" Endless Runner Game
 
 Название проекта: Том и Джерри
 
