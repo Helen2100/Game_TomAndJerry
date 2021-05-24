@@ -28,8 +28,8 @@ namespace Game_TomAndJerry
         /// <summary>
         /// метод, который определяет дальнейшие действия игры, когда нажаты различные кнопки
         /// </summary>
-        /// <param name="sender"> клавиатура </param>
-        /// <param name="e"> клавиша </param>
+        /// <param name="sender"> источник команды(клавиатура) </param>
+        /// <param name="e"> команда(клавиша) </param> 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up && jumping == false)//если нажата кнопка "стрелка вверх" и Джерри не прыгает
@@ -43,8 +43,8 @@ namespace Game_TomAndJerry
         /// <summary>
         /// метод, который определяет дальнейшие действия игры, когда отжаты  кнопки
         /// </summary>
-        /// <param name="sender"> клавиатура </param>
-        /// <param name="e"> клавиша </param> 
+        /// <param name="sender"> источник команды(клавиатура) </param>
+        /// <param name="e"> команда(клавиша) </param> 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (jumping == true) jumping = false;//если Джерри прыгал, то условие прекращает данное действие
@@ -52,8 +52,8 @@ namespace Game_TomAndJerry
         /// <summary>
         /// метод, на который ссылается программа, когда игра запущена
         /// </summary>
-        /// /// <param name="sender"> клавиатура </param>
-        /// <param name="e"> клавиша </param>
+        /// <param name="sender"> источник команды(клавиатура) </param>
+        /// <param name="e"> команда(клавиша) </param> 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = "Счет: " + score;//выводим надпись со счетом

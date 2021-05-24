@@ -115,8 +115,5 @@
   <ItemGroup>
     <None Include="Resources\trapHit.wav" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\history.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
