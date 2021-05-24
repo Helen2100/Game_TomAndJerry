@@ -14,11 +14,20 @@ namespace Test
     {//создаем глобальные переменные
         runningJerry flag = new runningJerry();//вызываем класс runningJerry()
         List<int> constGame = new List<int> { 17, 0, 1, 10, 13, 535, -224, 536, 323, 482 };//создаем лист с константами
-        [Test]//проверка начального состояние игры(закончена/не закончена)
-        public void GameIsOver() => Assert.AreEqual(flag.GameOver(), "error");
-        [Test]//проверка на начальные параметры фигур персонажей и надписей
+        /// <summary>
+        /// проверка начального состояние игры(закончена/не закончена)
+        /// </summary>
+        [Test]
+        public void GameIsOver() => Assert.AreEqual(flag.GameOver(), "error");//т.к в начале игры некоторые элементы не должны быть на экране
+        /// <summary>
+        /// //проверка на начальные параметры фигур персонажей и надписей
+        /// </summary>
+        [Test]
         public void GameResent_Const() => Assert.AreEqual(flag.GameReset(), constGame);
-        [Test]//проверка начального состояние главного персонажа(прыгает/не прыгает)
+        /// <summary>
+        /// проверка начального состояние главного персонажа(прыгает/не прыгает)
+        /// </summary>
+        [Test]
         public void JerryDoesJump() => Assert.AreEqual(flag.JumpingJerry(), "Jerry doesn't jump");
     }
 }

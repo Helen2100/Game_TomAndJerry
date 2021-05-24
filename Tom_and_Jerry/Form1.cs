@@ -17,14 +17,21 @@ namespace Game_TomAndJerry
         string flag;//флаг, который необходим для тестов
         List<int> arrayConst;//лист, который необходим для тестов
         Random rand = new Random();//создаем переменную для функции рандома чисел
+        /// <summary>
+        /// метод, который при запуске игры вызывает два метода(поддержка конструктора и начальные условия запуска игры+запуск игры)
+        /// </summary>
         public runningJerry()
-        {//метод, который при запуске игры вызывает два метода
+        {
             InitializeComponent();//метод, который поддерживает конструктор
             GameReset();//метод, который присваивает глобальным переменным значения и вызывает метод запуска игры
         }
-
+        /// <summary>
+        /// метод, который определяет дальнейшие действия игры, когда нажаты различные кнопки
+        /// </summary>
+        /// <param name="sender"> клавиатура </param>
+        /// <param name="e"> клавиша </param>
         private void KeyIsDown(object sender, KeyEventArgs e)
-        {//метод, который определяет дальнейшие действия игры, когда нажаты различные кнопки
+        {
             if (e.KeyCode == Keys.Up && jumping == false)//если нажата кнопка "стрелка вверх" и Джерри не прыгает
             {
                 jumping = true;//заставляем Джерри прыгать, изменяя переменнную на значение true
@@ -33,14 +40,22 @@ namespace Game_TomAndJerry
             if (e.KeyCode == Keys.Down) Jerry.Image = Resources.runningJerry;//если нажата "стрелка вниз", то меняем рисунок Джерри
             if (e.KeyCode == Keys.R && isGameOver == true) GameReset();//если нажата кнопка "R" и игра окончена, то возвращяем в начало игры с начальными параметрами
         }
-
+        /// <summary>
+        /// метод, который определяет дальнейшие действия игры, когда отжаты  кнопки
+        /// </summary>
+        /// <param name="sender"> клавиатура </param>
+        /// <param name="e"> клавиша </param> 
         private void KeyIsUp(object sender, KeyEventArgs e)
-        {//метод, который определяет дальнейшие действия игры, когда отжаты  кнопки
+        {
             if (jumping == true) jumping = false;//если Джерри прыгал, то условие прекращает данное действие
         }
-
+        /// <summary>
+        /// метод, на который ссылается программа, когда игра запущена
+        /// </summary>
+        /// /// <param name="sender"> клавиатура </param>
+        /// <param name="e"> клавиша </param>
         private void MainGameTimerEvent(object sender, EventArgs e)
-        {//метод, на который ссылается программа, когда игра запущена
+        {
             txtScore.Text = "Счет: " + score;//выводим надпись со счетом
             JumpingJerry();//вызываем метод, который заставляет Джерри прыгать
             TouchingJerry_MoveObject();//метод, который определяет дальнейшие действия персонажа(если он задел другой обьект)
@@ -55,8 +70,12 @@ namespace Game_TomAndJerry
                 bonusSpeed = 23;//то изменяем скорость бонуса(сыра)
             }
         }
+        /// <summary>
+        /// присваиваем глобальным переменным начальные значения
+        /// </summary>
+        /// <returns>запускает игру и возвращает лист с константами</returns>
         public List<int> GameReset()
-        {//присваиваем глобальным переменным начальные значения
+        {
             force = 17;//высота прыжка
             jumpSpeed = 0;//скорость перемещения обьекта вверх(прыжок) 
             jumping = false;//переменная отвечает за состояние обьекта(прыгает/не прыгает)
@@ -87,11 +106,15 @@ namespace Game_TomAndJerry
                         x.Left = this.ClientSize.Width + rand.Next(250, 500) + (x.Width * 5);//то перемещаем обьект вправо(за экран)
                 }
             }
-            gameTimer.Start();
+            gameTimer.Start();//запускаем метод отвечающий за механику игры
             return arrayConst;//возвращяем лист с константами
         }
+        /// <summary>
+        /// метод, который заставляет Джерри прыгать
+        /// </summary>
+        /// <returns>персонаж начинает прыгать, а также возращается сообщение об состоянии прыжка персонажа</returns>
         public string JumpingJerry()
-        {//метод, который заставляет Джерри прыгать
+        {
             Jerry.Top += jumpSpeed;//перемещаем Джерри вверх(срабатывает одновременно с методом KeyIsDown)
             if (jumping == true && force < 0) jumping = false;//если Джерри прыгнул, то поменять значение jumping на false
             if (jumping == true)//если Джерри прыгает
@@ -114,8 +137,11 @@ namespace Game_TomAndJerry
                 return flag = "Jerry has jumped";//то вывести "Jerry has jumped"
             else return flag = "Jerry falls";//если Джерри опускается, то вывести "Jerry falls"
         }
+        /// <summary>
+        /// метод, который определяет дальнейшие действия персонажа(если он задел другой обьект)
+        /// </summary>
         public void TouchingJerry_MoveObject()
-        {//метод, который определяет дальнейшие действия персонажа(если он задел другой обьект)
+        {
             foreach (Control x in this.Controls)//перебираем обьекты из коллекции элементов управления
             {
                 if (x is PictureBox)//если х-картинка
@@ -155,8 +181,12 @@ namespace Game_TomAndJerry
                 }
             }
         }
+        /// <summary>
+        /// метод,который завершает игру
+        /// </summary>
+        /// <returns>завершает игру, а также возвращает сообщение об правильности завершении игры</returns>
         public string GameOver() 
-        {//метод,который завершает игру
+        {
             gameTimer.Stop();//останавиваем таймер
             txtScore.Text = " Нажми R, чтобы начать игру заново";//вывести инструкцию
             txtResult.Visible = true;//показать табло с результатами
