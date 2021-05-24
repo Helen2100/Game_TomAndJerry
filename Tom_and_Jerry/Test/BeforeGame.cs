@@ -11,25 +11,14 @@ namespace Test
 {
     [TestFixture]
     public class BeforeGame
-    {
-        [Test]
-        public void GameIsOver()
-        {//проверка игры на начальное ее состояние
-            var flag = new runningJerry();
-            Assert.AreEqual(flag.GameOver(), "error");
-        }
-        [Test]
-        public void GameResent_Const()
-        {//проверка на начальные значения переменных
-            List<int> constGame = new List<int> {17, 0, 1, 10, 13, 535, -224, 536, 323, 482 };
-            var resultConst = new runningJerry();
-            Assert.AreEqual(resultConst.GameReset(), constGame);
-        }
-        [Test]
-        public void JerryDoesJump()
-        {//проверка начального состояния персонажа
-            var flag = new runningJerry();
-            Assert.AreEqual(flag.JumpingJerry(), "Jerry doesn't jump");
-        }
+    {//создаем глобальные переменные
+        runningJerry flag = new runningJerry();//вызываем класс runningJerry()
+        List<int> constGame = new List<int> { 17, 0, 1, 10, 13, 535, -224, 536, 323, 482 };//создаем лист с константами
+        [Test]//проверка начального состояние игры(закончена/не закончена)
+        public void GameIsOver() => Assert.AreEqual(flag.GameOver(), "error");
+        [Test]//проверка на начальные параметры фигур персонажей и надписей
+        public void GameResent_Const() => Assert.AreEqual(flag.GameReset(), constGame);
+        [Test]//проверка начального состояние главного персонажа(прыгает/не прыгает)
+        public void JerryDoesJump() => Assert.AreEqual(flag.JumpingJerry(), "Jerry doesn't jump");
     }
 }

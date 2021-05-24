@@ -155,7 +155,7 @@ namespace Game_TomAndJerry
                 }
             }
         }
-        public string GameOver()
+        public string GameOver() 
         {//метод,который завершает игру
             gameTimer.Stop();//останавиваем таймер
             txtScore.Text = " Нажми R, чтобы начать игру заново";//вывести инструкцию
