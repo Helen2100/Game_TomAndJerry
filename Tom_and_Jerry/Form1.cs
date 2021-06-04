@@ -34,7 +34,8 @@ namespace Game_TomAndJerry
         {
             if (e.KeyCode == Keys.Up && jumping == false)//если нажата кнопка "стрелка вверх" и Джерри не прыгает
             {
-                jumping = true;//заставляем Джерри прыгать, изменяя переменнную на значение true
+                jumping = true;//заставляем Джерри прыгать,
+                               //изменяя переменнную на значение true
                 Jerry.Image = Resources.JerryCheese;//меняем рисунок Джерри
             }
             if (e.KeyCode == Keys.Down) Jerry.Image = Resources.runningJerry;//если нажата "стрелка вниз", то меняем рисунок Джерри
